@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: 'Deployment Target (e.g., sandbox or production)'
+        description: 'Deployment Target (e.g., developer)'
         required: true
-        default: 'production'
+        default: 'developer'
 
 jobs:
   deploy:
@@ -19,14 +19,24 @@ jobs:
       - name: Install Salesforce CLI
         uses: sfdx-actions/setup-sfdx@v1
 
-      - name: Authenticate with JWT
+      - name: Debug Secrets (optional - remove after verification)
+        run: |
+          echo "Consumer Key exists? -> [${{ secrets.CONSUMER_KEY != '' }}]"
+          echo "Username exists?     -> [${{ secrets.SF_USERNAME != '' }}]"
+          echo "JWT Key length:      -> [${{ secrets.JWT_KEY != '' }}]"
+
+      - name: Write JWT key to file
         run: |
           echo "${{ secrets.JWT_KEY }}" > server.key
-          sfdx auth:jwt:grant --clientid ${{ secrets.CONSUMER_KEY }} \
+
+      - name: Authenticate with Salesforce via JWT
+        run: |
+          sfdx auth:jwt:grant \
+            --clientid ${{ secrets.CONSUMER_KEY }} \
             --jwtkeyfile server.key \
             --username ${{ secrets.SF_USERNAME }} \
             --instanceurl https://login.salesforce.com
 
-      - name: Deploy source to Salesforce
+      - name: Deploy metadata to Salesforce
         run: |
           sfdx force:source:deploy -p force-app -u ${{ secrets.SF_USERNAME }} --testlevel RunLocalTests
