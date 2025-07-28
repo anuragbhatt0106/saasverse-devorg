@@ -6,7 +6,7 @@ on:
       environment:
         description: 'Deployment Target (e.g., sandbox or production)'
         required: true
-        default: 'sandbox'
+        default: 'production'
 
 jobs:
   deploy:
@@ -25,7 +25,7 @@ jobs:
           sfdx auth:jwt:grant --clientid ${{ secrets.CONSUMER_KEY }} \
             --jwtkeyfile server.key \
             --username ${{ secrets.SF_USERNAME }} \
-            --instanceurl https://test.salesforce.com
+            --instanceurl https://login.salesforce.com
 
       - name: Deploy source to Salesforce
         run: |
