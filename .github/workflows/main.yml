@@ -29,4 +29,4 @@ jobs:
 
       - name: Deploy source to Salesforce
         run: |
-          sfdx force:source:deploy -p force-app -u ${{ secrets.saasversetechnologies@agentforce.com }} --testlevel RunLocalTests
+          sfdx force:source:deploy -p force-app -u ${{ secrets.SF_USERNAME }} --testlevel RunLocalTests
