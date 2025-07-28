@@ -1,0 +1,32 @@
+<!-- File: InvoicePDFPage.page -->
+<apex:page renderAs="pdf" contentType="application/pdf" controller="InvoicePDFController">
+    <h1 style="text-align:center; font-family:Arial;">SAASVERSE - Project Invoice</h1>
+    <hr/>
+    <p><strong>Developer:</strong> {!developerName}</p>
+    <p><strong>Generated On:</strong> {!generatedDate}</p>
+
+    <table border="1" cellpadding="5" cellspacing="0" style="width:100%; margin-top:20px; font-family:Arial;">
+        <thead>
+            <tr style="background-color:#f0f0f0;">
+                <th>Project</th>
+                <th>Worked Days</th>
+                <th>Worked Hours</th>
+                <th>Rate</th>
+                <th>Total Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+            <apex:repeat value="{!entries}" var="entry">
+                <tr>
+                    <td>{!entry.projectName}</td>
+                    <td>{!entry.workedDays}</td>
+                    <td>{!entry.workedHours}</td>
+                    <td>{!entry.rate}</td>
+                    <td>{!entry.total}</td>
+                </tr>
+            </apex:repeat>
+        </tbody>
+    </table>
+
+    <h3 style="text-align:right; margin-top:20px; font-family:Arial;">Grand Total: ₹ {!grandTotal}</h3>
+</apex:page>

@@ -1,0 +1,182 @@
+<apex:page renderAs="pdf" showHeader="false" sidebar="false" applyBodyTag="false">
+<html>
+<head>
+  <style type="text/css">
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      margin: 0;
+      padding: 0;
+    }
+    .main-table {
+      width: 100%;
+      border: 2px solid #000;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: #fff;
+    }
+    .header-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: #000;
+      padding: 8px 0 4px 8px;
+      border-bottom: 1px solid #000;
+    }
+    .header-right {
+      text-align: right;
+      font-weight: bold;
+      font-size: 13px;
+      padding: 8px 8px 4px 0;
+      border-bottom: 1px solid #000;
+    }
+    .red {
+      color: #d90000;
+      font-weight: bold;
+    }
+    .box {
+      border: 1px solid #000;
+      padding: 6px;
+      font-size: 12px;
+    }
+    .section-label {
+      font-weight: bold;
+      font-size: 13px;
+      padding-bottom: 2px;
+    }
+    .invoice-meta {
+      font-size: 12px;
+      padding: 2px 0;
+    }
+    .highlight {
+      background: #f2f2f2;
+      font-weight: bold;
+      font-size: 13px;
+      padding: 4px 0 4px 8px;
+    }
+    .amount-label {
+      font-weight: bold;
+      text-align: right;
+      padding-right: 8px;
+    }
+    .amount-value {
+      font-weight: bold;
+      text-align: right;
+      color: #d90000;
+    }
+    .border-bottom {
+      border-bottom: 1px solid #000;
+    }
+    .no-border {
+      border: none !important;
+    }
+    .thankyou {
+      padding: 8px 0 0 8px;
+      color: #333;
+      font-size: 12px;
+    }
+    .g3-logo {
+      text-align: right;
+      padding: 4px 8px 0 0;
+    }
+  </style>
+</head>
+<body>
+  <table class="main-table">
+    <tr>
+      <td colspan="3" class="header-title" style="width:70%">Invoice from Fname, Lname</td>
+      <td colspan="2" class="g3-logo" style="width:30%">
+        <img src="https://g3techinfo.com/wp-content/uploads/2021/05/G3-Logo.png" height="30"/>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="5" style="padding:0;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td valign="top" style="width:50%; padding:8px;">
+              <span class="red">Candidate Name: Parag Bhatt</span><br/>
+              314, Rajni Vihar, Heerapura, Ajmer Road<br/>
+              Jaipur, Rajasthan-302021<br/>
+              Ph: +91 7014051881
+            </td>
+            <td valign="top" style="width:25%; padding:8px;">
+              <span class="invoice-meta"><b>Invoice Date:</b> <span class="red">05-05-2025</span></span><br/>
+              <span class="invoice-meta"><b>Invoice #:</b> <span class="red">April25_004</span></span><br/>
+              <span class="invoice-meta"><b>PAN ID:</b> <span class="red">CIFPB0224A</span></span><br/>
+              <span class="invoice-meta"><b>Payment Terms:</b> <span class="red">Every 4 Weeks</span></span>
+            </td>
+            <td valign="top" style="width:25%; padding:8px;">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="5" style="padding:0;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td style="padding:8px;">
+              <span class="red">Invoice Period - 04/01/2025 to 04/30/2025</span><br/>
+              <b>Candidate Name:</b> <span class="red">Parag Bhatt</span><br/>
+              <b>Account Manager:</b> Kowchigam Ashok Kumar
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="5" style="padding:0;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td style="padding:8px;">
+              <b>Bill To:</b><br/>
+              GG Tech India<br/>
+              G1, #4/608, V.O.C Street,<br/>
+              Desk No.176, Perungudi, OMR, Chennai, TN - 600041
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="5" style="padding:0;">
+        <br/>
+        <table width="100%" cellpadding="3" cellspacing="0" style="border:1px solid #000;">
+          <tr style="background:#eee;">
+            <th>Description</th>
+            <th>Rate</th>
+            <th>Hrs</th>
+            <th>Amount</th>
+          </tr>
+          <tr>
+            <td>Salesforce Developer - AUGUSTA</td>
+            <td>XXXXX</td>
+            <td>XXXXX</td>
+            <td>INR XXXXX.00</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="no-border">&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="no-border thankyou">Thank you for your business.</td>
+          </tr>
+          <tr>
+            <td colspan="3" class="amount-label">Total</td>
+            <td class="amount-value">INR XXXXX.00</td>
+          </tr>
+          <tr>
+            <td colspan="3" class="amount-label">Payments/Credits</td>
+            <td class="amount-value">INR XXXXX.00</td>
+          </tr>
+          <tr>
+            <td colspan="3" class="amount-label">Balance Due</td>
+            <td class="amount-value">INR XXXXX.00</td>
+          </tr>
+        </table>
+        <br/>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+</apex:page>

@@ -1,0 +1,176 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+      @page {
+          size: A4;
+          margin: 20mm;
+      }
+
+      body {
+          font-family: Arial, sans-serif;
+          font-size: 12pt;
+          line-height: 1.5;
+      }
+
+      h1 {
+          text-align: center;
+      }
+    </style>
+      </head>
+  <body style="font-family: Arial, sans-serif; font-size: 13px; color: #222;">
+    <apex:page contenttype="application/pdf">
+
+      <table border="1" width="100%" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
+        <!-- Header Row: GSTIN and Copy Label -->
+        <tr border="0">
+          <td  style="border: none;" align="left" ><b>GSTIN: 08ABLCS0377B1ZD</b></td>
+          <td   style="border: none;" align="right" ><b>ORIGINAL COPY</b></td>
+        </tr>
+        <!-- Company Info -->
+        <tr >
+          <td colspan="3"  border="1" style=" text-align: center;">    
+            <h2 style="text-decoration: underline; margin: 0px;">TAX INVOICE</h2>
+            <h2 style="margin: 0px;">SAASVERSE PRIVATE LIMITED</h2>
+            <b>314 RAJNI BHAIR COLONY,36 DUKAN KE SAMNE, VAISHALI NAGAR, JAIPUR, RAJASTHAN-302021</b><br />
+            <b>Contact: +91-7014051881,Email: info@saasverse.in</b>
+          </td>
+        </tr>
+
+      <!-- Party and Invoice Details -->
+      <tr>
+        <td style="width: 50%; vertical-align: top;">
+          Party Details:- <br />
+          <b>{{Address__c}}</b><br><br />
+          <!-- <b>Registered address: A-26, GROUND FLOOR Guru Kripa-1, Swej Farm</b><br />
+          <b>Road, New Sanganer Road, Jaipur, Rajasthan -302019</b><br><br> -->
+          <b>GST - {{GSTIN__c}}</b>
+        </td>
+        <td colspan="2" style="width: 50%; vertical-align: top;">
+          <table cellpadding="1" cellspacing="0" style="width: 100%; font-size: 14px;">
+            <tr><td><b>Invoice No.</b></td><td>:</td><td>{{invoice_Number__c}}</td></tr>
+            <tr><td><b>Dated</b></td><td>:</td><td>{{Invoice_Date__c}}</td></tr>
+            <tr><td><b>Place of Supply</b></td><td>:</td><td>{{Invoice_Date__c}}</td></tr>
+            <tr><td><b>Reverse Charge</b></td><td>:</td><td>(09)</td></tr>
+            <tr><td><b>GR/RR No.</b></td><td>:</td><td></td></tr>
+            <tr><td><b>Transport</b></td><td>:</td><td>ONLINE</td></tr>
+            <tr><td><b>Vehicle No.</b></td><td>:</td><td></td></tr>
+            <tr><td><b>Station</b></td><td>:</td><td></td></tr>
+            <tr><td><b>E-Way Bill No.</b></td><td>:</td><td></td></tr>
+          </table>
+        </td>
+      </tr>
+    <!-- Services Table -->
+    </table>
+    <table border="1" width="100%" cellpadding="5" cellspacing="0" style="border-collapse: collapse; margin-bottom: 0px;">
+      <tr>
+        <th>S.No</th>
+        <th>Description of Services</th>
+        <th>HSN/SAC Code </th>
+        <th>Days</th>
+        <th>UQM</th>
+        <th>Prise</th>
+        <th style="width: 214.891; text-align: center;"> Amount (Rs.)</th>
+      </tr>
+      <tr style=" padding-bottom: 20px;">
+        <td>1</td>
+        <td>Staffing Services (Parag Bharti)<br>(Gaurdant)</td>
+        <td>998513</td>
+        <td>{{Days_calculate__c}}</td>
+        <td>Days</td>
+        <td>{{Rate__c}}</td>
+        <td style="text-align: right;">{{Total_Amount__c}}</td>
+      </tr>
+    
+    </table>
+
+    <!-- Taxes & Total -->
+    <table width="100%" cellpadding="5" cellspacing="0" style="margin-top: 0px; border-collapse: collapse; border: 1px solid black;">
+      <tr>
+        <td style="border-left: 1px solid #000; text-align: center; padding-top: 77px;">Add : SGST @ 9%</td>
+        <td style=" border-right: 1px solid #000;  text-align: right; padding-top: 77px;width: 154.891;">₹{{SGST_Amount__c}}</td>
+      </tr>
+      <tr>
+        <td style="border-left: 1px solid #000; text-align: center;">Add : CGST @ 9%</td>
+        <td style="border-right: 1px solid #000;  text-align: right; width: 154.891;">₹{{CGST_Amount__c}}</td>
+      </tr>
+      <tr>
+        <td style="border-left: 1px solid #000; border-bottom: 1px solid #000; text-align: center;">Rounded Off (+)</td>
+        <td style="border-right: 1px solid #000; border-bottom: 1px solid #000; text-align: right; width: 254.891;">₹{{Balance_Due__c}}</td>
+      </tr>
+    </table>
+
+    <!-- Grand Total -->
+    <table  width="100%" cellpadding="8" cellspacing="0" style=" border-collapse: collapse; border: 1px solid black; font-weight: bold; ">
+      <tr align="left"> 
+        <td  width="50%" style="border-left: 1px solid #000; padding-right: 5px; text-align: right;">Grand Total</td>
+        <td width="15%" style="border-right: none;border-left: none; text-align: right;">NA</td>
+        <td width="15%" style=" text-align: center; ">NO</td>
+        <td width="20%"style="border-right: 1px solid #000;  text-align: right; width: 254.891;">{{Grand_Total__c}}</td>
+      </tr>
+    </table>
+
+    <!-- Tax Summary -->
+    <table  width="100%" cellpadding="6" cellspacing="0" style="border-collapse: collapse;  margin-top: 0px; text-align: center; font-size: 10px;">
+      <tr >
+        <th width="15%" style="border-bottom: 1px solid #000; border-left: 1px solid #000;  padding-top: 77px; ">Tax Rate</th>
+        <th width="15%" style="border-bottom: 1px solid #000;  padding-top: 77px;">Taxable Amount</th>
+        <th width="15%" style="border-bottom: 1px solid #000;  padding-top: 77px;"> SGST Amt.</th>
+        <th width="15%" style="border-bottom: 1px solid #000;  padding-top: 77px;">CGST Amt.</th>
+        <th width="15%" style="border-bottom: 1px solid #000;  padding-top: 77px;"></th>
+        <th width="25%" style="border-right: 1px solid #000;"></th>
+      </tr>
+      <tr>
+        <td style="border-left: 1px solid #000;">{{GST_Rate__c}}</td>
+        <td>₹{{Total_Amount__c}}</td>
+        <td>₹{{CGST_Amount__c}}</td>
+        <td>₹{{CGST_Amount__c}}</td>
+        <td style=" border-right: 1px solid #000;  "></td>
+        <td style=" border-right: 1px solid #000; "></td>
+      </tr>
+    </table>
+
+    <!-- Declaration -->
+    <table border="1" width="100%" cellpadding="5" cellspacing="0" style="margin-top: 0px; border-collapse: collapse;">
+      <tr>
+        <td align="center">
+          <h3 style="text-decoration: underline; margin: 0;">Declaration</h3>
+          ALL WARRANTY CLAIMS ARE SUBJECT TO THE TERMS AND CONDITIONS. INSTALLATION CHARGES EXTRA FOR PRINTERS AND ANTIVIRUSES.<br/> 
+        </td>    
+      </tr>
+      <tr>
+        <td style="font-size: 12px;">
+            <b>
+                Bank Details: {{Bank_Name__c}}, {{Bank_Address__c}}, {{Account_Number__c}}  IFSC: {{IFSC_Code__c}} 
+            </b>
+        </td>
+      </tr>
+    </table>
+
+    <!-- Signature & Terms -->
+    <table width="100%" style="border-collapse: collapse; margin-top: 0px;">
+      <tr>
+        <td style="border:1px solid #000; padding: 6px; vertical-align: top; width: 50%;" rowspan="2">
+          <b style="text-decoration: underline;">Terms & Conditions</b><br />
+          E. & O.E.<br /><br />
+          1. Interest @ 18% p.a. will be charged if the payment is not made within the stipulated time.<br />
+          2. Subject to Rajasthan Jurisdiction only.
+        </td>
+        <td style="border:1px solid #000; padding: 6px; vertical-align: top; width: 50%;">
+          <b>Receiver's Signature :</b><br /><br />
+          <div style="height: 40px;"></div>
+        </td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #000; padding: 6px; vertical-align: bottom;">
+          <div style="text-align: right;">
+            <b>For SAASVERSE</b><br />
+            <img src="https://via.placeholder.com/150x30?text=Signature" alt="Signature" style="height:30px;"><br />
+            <span style="font-size:13px;">Authorised Signatory</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+</apex:page>
+  </body>
+</html>

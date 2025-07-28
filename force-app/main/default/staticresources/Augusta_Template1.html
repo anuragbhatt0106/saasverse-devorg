@@ -1,0 +1,179 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+      @page {
+          size: A4;
+          margin: 20mm;
+      }
+
+      body {
+          font-family: Arial, sans-serif;
+          font-size: 12pt;
+          line-height: 1.5;
+      }
+
+      h1 {
+          text-align: center;
+      }
+    </style>
+  </head>
+  <body style="font-family: Arial, sans-serif; font-size: 13px; color: #222;">
+    <apex:page contenttype="application/pdf">
+      <table style="border: 2px solid black; border-collapse:collapse;">
+        <tr>
+          <td style="border: 2px solid black; width: 5%;">&nbsp;</td>
+          <td style="border: 2px solid black; padding-right: 3%;">
+            <table style="width: 95%; margin-top: 15px ; border-collapse: collapse; background: #fff;">
+              <!-- Header Row -->
+              <tr>
+                <td style="border: 2px solid black; color: #e60000; font-weight: bold; font-size: 16px; vertical-align: bottom; width: 45%;" colspan="1">Invoice from Fname, Lname</td>
+                <td style="border: 2px solid black; color: #e60000; font-weight: bold; font-size: 16px; vertical-align: bottom; width: 5%;" colspan="1">&nbsp;</td>
+                <td style="border: 2px solid black; font-size: 16px; vertical-align: bottom; width: 20%;" colspan="1">To Parag Bhatt</td>
+                <td colspan="1" style="text-align: right; border: 2px solid black; width: 30%;">
+                  <img src="https://saasversetechnologies-dev-ed--c.develop.vf.force.com/resource/GG_Tech_Logo?" height="60px" style="padding-right: 50px;">
+                </td>
+              </tr>
+              <!-- Candidate and Invoice Info -->
+              <tr>
+                <td colspan="4">
+                  <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse:collapse;">
+                    <tr>
+                      <td colspan="4">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td rowspan="3" valign="top" width="45%" style="padding: 0;">
+                        <b><span style="color: #e60000; font-weight: bold; font-size:16px;">Candidate Name: Parag Bhatt</span></b><br>
+                        <span style="color: #e60000; font-size:16px;">
+                          314, Rajni Vihar , Heerapura ,Ajmer Road<br>
+                          Jaipur, Rajasthan-302021<br>
+                          Ph: +91 7014051881
+                        </span>
+                      </td>
+                      <td width="5%" style="padding: 0;">&nbsp;</td>
+                      <td align="center" width="20%" style="padding: 0;">
+                        Invoice Date<br>
+                        <span style="border: 2px solid #000; display: inline-block; color: #e60000; font-weight: bold; font-size: 14px; margin-top: 3px; width: 95%;">{{Invoice_Date__c}}</span>
+                      </td>
+                      <td width="30%" style="padding: 0; text-align: center;">
+                        <span style="padding-left: 25%;">
+                          Invoice #<br>
+                          <span style="border: 2px solid #000; display: inline-block; color: #e60000; font-weight: bold; font-size: 14px; margin-top: 3px; width: 75%; float: right;">{{Invoice_Number__c}}</span>
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="4">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td width="5%" style="padding: 0;">&nbsp;</td>
+                      <td align="center" width="20%" style="padding: 0;">
+                        PAN ID<br>
+                        <span style="border: 2px solid #000; display: inline-block; color: #e60000; font-weight: bold; font-size: 14px; margin-top: 3px;  width: 95%;">{{PAN_Number__c}}</span>
+                      </td>
+                      <td width="30%" style="padding: 0; text-align: center;">
+                        <span style="padding-left: 25%;">
+                          Payment Terms<br>
+                          <span style="border: 2px solid #000; display: inline-block; color: #e60000; font-weight: bold; font-size: 14px; margin-top: 3px;  width: 75%; float: right;">Every 4 Weeks</span>
+                        </span>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <!-- Invoice Period and Candidate Name (do not touch) -->
+              <tr>
+                <td colspan="2" width="50%">
+                  <span style="color: #e60000; font-size:16px; text-decoration: underline;">Invoice Period - 04/01/2025 to 04/30/2025</span><br>
+                  <span style="color: #e60000; font-weight: bold; font-size:17px;">Candidate Name( Parag Bhatt )</span>
+                </td>
+                <td colspan="2" style="font-weight:bold; margin:8px 0 2px 0; vertical-align: bottom;">
+                  Bill To
+                </td>
+              </tr>
+              <!-- Bill To section -->
+              <tr>
+                <td style="border: 2px solid black; border-right: 0px solid #000; color:#e60000; font-size:16px; vertical-align: baseline; width: 45%; padding-right:0 2%">
+                    Account Manager: Kowchigan Ashok Kumar
+                </td>
+                <td style="border: 0; width: 5%;">&nbsp;</td>
+                <td colspan="2" style="border:2px solid #000; width: 50%;">
+                    GG Tech India<br>
+                    G1, #4/608, V.O.C Street,<br>
+                    Desk No.176, Perungudi, OMR, Chennai, TN - 600041
+                </td>
+              </tr>
+              <tr>
+                <td colspan="4" style="border: 0;">&nbsp;</td>
+              </tr>
+              <tr>
+                <td colspan="4" style="border: 0;">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td style="border: 2px solid black; width: 5%; line-height: 5px;">&nbsp;</td>
+          <td style="border: 2px solid black; padding-right: 3%; line-height: 5px;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td style="border: 2px solid black; width: 5%">&nbsp;</td>
+          <td style="border: 2px solid black; padding-right: 3%;">
+            <table style="width: 95%; margin-top: 15px; margin-bottom: 50px; border-collapse: collapse; background: #fff;">
+              <!-- Item Table Header -->
+              <tr>
+                <td colspan="4">
+                  <table class="item-table" style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                      <th colspan="2" style="border: 2px solid #000; padding: 8px 6px; background: #d8d8d8; text-align: center; width: 50%;">Description</th>
+                      <th style="border: 2px solid #000; padding: 8px 6px; background: #d8d8d8; text-align: center; width: 21%;">Rate</th>
+                      <th style="border: 2px solid #000; padding: 8px 6px; background: #d8d8d8; text-align: center; width: 8%;">Hrs</th>
+                      <th style="border: 2px solid #000; padding: 8px 6px; background: #d8d8d8; text-align: center; width: 21%;">Amount</th>
+                    </tr>
+                    <tr>
+                      <td style="border: 2px solid #000; padding: 8px 6px; height: 30px; width: 45%;">Salesforce Developer - AUGUSTA</td>
+                      <td style="border: 2px solid #000; padding: 8px 6px; height: 30px; width: 5%;">&nbsp;</td>
+                      <td style="border: 2px solid #000; padding: 8px 6px; height: 30px; width: 21%;">{{Rate__c}}</td>
+                      <td style="border: 2px solid #000; padding: 8px 6px; height: 30px; width: 8%;">{{Quantity}}</td>
+                      <td style="border: 2px solid #000; padding: 8px 6px; height: 30px; width: 21%;">INR {{Total_Amount__c}} </td>
+                    </tr>
+                    <tr>
+                      <td style="border: 2px solid #000; padding: 8px 6px; height: 30px; width: 45%;">&nbsp;</td>
+                      <td style="border: 2px solid #000; padding: 8px 6px; height: 30px; width: 5%;">&nbsp;</td>
+                      <td style="border: 2px solid #000; padding: 8px 6px; height: 30px; width: 21%;">&nbsp;</td>
+                      <td style="border: 2px solid #000; padding: 8px 6px; height: 30px; width: 8%;">&nbsp;</td>
+                      <td style="border: 2px solid #000; padding: 8px 6px; height: 30px; width: 21%;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td style="border: 2px solid #000; padding: 8px 6px; height: 30px; width: 45%;">&nbsp;</td>
+                      <td style="border: 2px solid #000; padding: 8px 6px; height: 30px; width: 5%;">&nbsp;</td>
+                      <td style="border: 2px solid #000; padding: 8px 6px; height: 30px; width: 21%;">&nbsp;</td>
+                      <td style="border: 2px solid #000; padding: 8px 6px; height: 30px; width: 8%;">&nbsp;</td>
+                      <td style="border: 2px solid #000; padding: 8px 6px; height: 30px; width: 21%;">&nbsp;</td>
+                    </tr>
+                    <tr> 
+                      <td colspan="2" style="font-weight:bold; text-align:center; vertical-align:top; border: 2px solid #000; padding: 8px 6px; height: 30px; width: 50%;">Thank you for your business.</td>
+                      <td colspan="2" style="font-weight:bold; border-left: 2px solid #000; border-top: 2px solid #000; border-bottom: 2px solid #000; padding: 8px 6px; height: 30px; width: 29%; text-align: left;">Total</td>
+                      <td style="text-align:right; border-right: 2px solid #000; border-top: 2px solid #000; border-bottom: 2px solid #000; padding: 8px 6px; height: 30px; width: 21%;">INR {{Total_Amount__c}}</td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">&nbsp;</td>
+                      <td colspan="2" style="font-weight:bold; border-left: 2px solid #000; border-top: 2px solid #000; border-bottom: 2px solid #000; padding: 8px 6px; height: 30px; width: 29%; text-align: left;">Payments/Credits</td>
+                      <td style="text-align:right; border-right: 2px solid #000; border-top: 2px solid #000; border-bottom: 2px solid #000; padding: 8px 6px; height: 30px; width: 21%;">INR 0.00</td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">&nbsp;</td>
+                      <td colspan="2" style="font-weight:bold; border-left: 2px solid #000; border-top: 2px solid #000; border-bottom: 2px solid #000; padding: 8px 6px; height: 30px; width: 29%; text-align: left;">Balance Due</td>
+                      <td style="text-align:right; border-right: 2px solid #000; border-top: 2px solid #000; border-bottom: 2px solid #000; padding: 8px 6px; height: 30px; width: 21%;">INR {{Balance_Due__c}}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+    </apex:page>
+  </body>
+</html>

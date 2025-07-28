@@ -1,0 +1,168 @@
+<apex:page renderAs="pdf" showHeader="false" sidebar="false">
+    <html>
+    <head>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                font-size: 13px;
+                color: #222;
+                margin: 0;
+                padding: 0;
+            }
+            .invoice-box {
+                width: 800px;
+                margin: 20px auto;
+                padding: 20px;
+                border: 2px solid #222;
+                background: #fff;
+            }
+            .red {
+                color: #e60000;
+                font-weight: bold;
+            }
+            .highlight {
+                background: #e60000;
+                color: #fff;
+                font-weight: bold;
+                border-radius: 4px;
+                padding: 2px 6px;
+                display: inline-block;
+            }
+            .section-title {
+                font-weight: bold;
+                margin-top: 10px;
+            }
+            .info-table, .details-table, .summary-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 10px;
+            }
+            .info-table th, .info-table td,
+            .details-table th, .details-table td,
+            .summary-table th, .summary-table td {
+                border: 1px solid #222;
+                padding: 6px 8px;
+            }
+            .info-table th, .details-table th, .summary-table th {
+                background: #f0f0f0;
+                font-weight: bold;
+            }
+            .details-table td {
+                text-align: left;
+            }
+            .summary-table td {
+                text-align: right;
+            }
+            .summary-table .label {
+                font-weight: bold;
+                text-align: left;
+            }
+            .summary-table .value {
+                color: #222;
+            }
+            .summary-table .red {
+                color: #e60000;
+                font-weight: bold;
+            }
+            hr {
+                border: 1px solid #222;
+                margin: 18px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="invoice-box">
+            <table width="100%" style="border:none;">
+                <tr>
+                    <td style="border:none;">
+                        <span class="red">Invoice from Fname, Lname</span><br/>
+                        To <b>Parag Bhatt</b>
+                    </td>
+                    <td style="border:none; text-align:right;">
+                        <span style="font-size:12px;">G3 Tech India</span>
+                    </td>
+                </tr>
+            </table>
+            <table width="100%" style="border:none; margin-top:10px;">
+                <tr>
+                    <td style="border:none;">
+                        <span class="red">Candidate Name: Parag Bhatt</span><br/>
+                        314, Rajni Vihar, Heerapura, Ajmer Road<br/>
+                        Jaipur, Rajasthan-302021<br/>
+                        Ph: +91 7014051881
+                    </td>
+                </tr>
+            </table>
+            <table class="info-table">
+                <tr>
+                    <th>Invoice Date</th>
+                    <th>Invoice #</th>
+                    <th>PAN ID</th>
+                    <th>Payment Terms</th>
+                </tr>
+                <tr>
+                    <td><span class="highlight">05-05-2025</span></td>
+                    <td><span class="highlight">April25_004</span></td>
+                    <td><span class="highlight">CIFPB0224A</span></td>
+                    <td><span class="highlight">Every 4 Weeks</span></td>
+                </tr>
+            </table>
+            <table width="100%" style="border:none; margin-top:10px;">
+                <tr>
+                    <td style="border:none;">
+                        <span class="red">Invoice Period - 04/01/2025 to 04/30/2025</span><br/>
+                        <span class="red">Candidate Name( Parag Bhatt )</span><br/>
+                        <span class="red">Account Manager: Kowchigan Ashok Kumar</span>
+                    </td>
+                </tr>
+            </table>
+            <table width="100%" style="border:none; margin-top:10px;">
+                <tr>
+                    <td style="border:none;">
+                        <b>Bill To</b><br/>
+                        GG Tech India<br/>
+                        G1, #4/608, V.O.C Street,<br/>
+                        Desk No.176, Perungudi, OMR, Chennai, TN - 600041
+                    </td>
+                </tr>
+            </table>
+            <hr/>
+            <table class="details-table">
+                <tr>
+                    <th>Description</th>
+                    <th>Rate</th>
+                    <th>Hrs</th>
+                    <th>Amount</th>
+                </tr>
+                <tr>
+                    <td>Salesforce Developer -AUGUSTA</td>
+                    <td>xxxx</td>
+                    <td>xx</td>
+                    <td>INR xxxxx.00</td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="border:none;">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="border:none;">&nbsp;</td>
+                </tr>
+            </table>
+            <div style="margin-top:10px;">Thank you for your business.</div>
+            <table class="summary-table">
+                <tr>
+                    <td class="label">Total</td>
+                    <td class="value">INR xxxxx.00</td>
+                </tr>
+                <tr>
+                    <td class="label">Payments/Credits</td>
+                    <td class="value">INR xxxxx.00</td>
+                </tr>
+                <tr>
+                    <td class="label">Balance Due</td>
+                    <td class="value red">INR xxxxx.00</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+    </html>
+</apex:page>

@@ -1,0 +1,32 @@
+.chart-container1 {
+    height: 6vh;
+    width: 90vw;
+    padding: 5px;
+    box-sizing: border-box;
+    margin: auto;
+    background-color: #c2e0ff;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.chart-container2 {
+    height: 58vh;
+    width: 95vw;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: auto;
+    background-color: #d2d7dc;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+ .lightcard-container1 {
+    height: 10vh;
+    width: 95vw;
+    padding: 2px;
+    box-sizing: border-box;
+    margin: auto;
+   //background-color: #c2e0ff;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}

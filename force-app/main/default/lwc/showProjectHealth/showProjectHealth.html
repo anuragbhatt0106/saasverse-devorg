@@ -1,0 +1,42 @@
+<template>
+    <lightning-card class="chart-container1" title="Project Health">
+        <div class="slds-p-around_medium">
+            <lightning-button
+                label="🔴 Red"
+                data-health="🔴 Red"
+                onclick={handleFilter}
+                class="slds-m-right_small">
+            </lightning-button>
+            
+            <lightning-button
+                label="🟠 Orange"
+                data-health="🟠 Orange"
+                onclick={handleFilter}
+                class="slds-m-right_small slds-align_right">
+            </lightning-button>
+
+            <lightning-button
+                label="Clear"
+                data-health="Clear"
+                onclick={handleFilter}>
+            </lightning-button>
+        </div>
+
+        <template if:true={projects}>
+            <lightning-layout multiple-rows class="slds-p-around_medium">
+                <template for:each={projects} for:item="proj">
+                    <lightning-layout-item key={proj.Id} size="12">
+                        <p><strong>Project:</strong> {proj.Name}</p>
+                        <p><strong>Resource:</strong> {proj.Resource__r.Name}</p>
+                        <p><strong>Health:</strong> {proj.Health__c}</p>
+                        <hr />
+                    </lightning-layout-item>
+                </template>
+            </lightning-layout>
+        </template>
+
+        <template if:true={error}>
+            <p class="slds-text-color_error">Error: {error.message}</p>
+        </template>
+    </lightning-card>
+</template>
