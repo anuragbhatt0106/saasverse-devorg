@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: 'Deployment Target (e.g., sandbox or production)'
+        description: 'Deployment Target (developer or production)'
         required: true
         default: 'production'
 
@@ -13,24 +13,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📁 Checkout code
+      - name: Checkout source code
         uses: actions/checkout@v3
 
-      - name: 🛠️ Install Salesforce CLI
+      - name: Install Salesforce CLI
         uses: sfdx-actions/setup-sfdx@v1
 
-      - name: 🔐 Authenticate with JWT
+      - name: Create JWT Key File
+        run: echo "${{ secrets.JWT_KEY }}" > server.key
+
+      - name: Authenticate using JWT
         run: |
-          echo "${{ secrets.JWT_KEY }}" > server.key
-          sfdx auth:jwt:grant \
+          sf org login jwt \
             --client-id ${{ secrets.CONSUMER_KEY }} \
-            --jwt-key-file server.key \
             --username ${{ secrets.SF_USERNAME }} \
+            --jwt-key-file server.key \
             --instance-url https://login.salesforce.com
 
-      - name: 🚀 Deploy metadata to Salesforce
+      - name: Deploy to Salesforce
         run: |
-          sfdx force:source:deploy -p force-app \
-            -u ${{ secrets.SF_USERNAME }} \
+          sf project deploy start \
+            --source-dir force-app \
+            --target-org ${{ secrets.SF_USERNAME }} \
             --test-level RunLocalTests \
-            --json
+            --wait 10
