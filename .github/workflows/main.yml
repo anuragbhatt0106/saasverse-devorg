@@ -20,13 +20,13 @@ jobs:
         uses: sfdx-actions/setup-sfdx@v1
 
       - name: Create JWT Key File
-        run: echo "${{ secrets.JWT_KEY_DEV }}" > server.key
+        run: echo "${{ secrets.JWT_KEY }}" > server.key
 
       - name: Authenticate using JWT
         run: |
           sf org login jwt \
-            --client-id ${{ secrets.CONSUMER_KEY_DEV }} \
-            --username ${{ secrets.SF_USERNAME_DEV }} \
+            --client-id ${{ secrets.CONSUMER_KEY }} \
+            --username ${{ secrets.SF_USERNAME }} \
             --jwt-key-file server.key \
             --instance-url https://login.salesforce.com
 
@@ -34,6 +34,6 @@ jobs:
         run: |
           sf project deploy start \
             --source-dir force-app \
-            --target-org ${{ secrets.SF_USERNAME_DEV }} \
+            --target-org ${{ secrets.SF_USERNAME }} \
             --test-level RunLocalTests \
             --wait 10
